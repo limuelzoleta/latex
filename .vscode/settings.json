@@ -1,0 +1,5 @@
+{
+  "latex-workshop.synctex.synctexjs.enabled":true,
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.bind.altKeymap.enabled": true
+}

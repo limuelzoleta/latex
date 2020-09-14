@@ -1,0 +1,337 @@
+% Initialize document
+% different paper types             Document types
+% * letterpaper                     * article
+% * a4paper                         * proc - proceedings
+% * legalpaper                      * minimal
+% * a5paper                         * report
+% * executivepaper                  * book
+% * b5paper                         * thesis
+%                                   * slides
+%                                   * memoir
+%                                   * letter
+%                                   * beamer
+\documentclass[a4paper, 12pt]{book}
+
+
+% Use to specify the margins
+\usepackage[margin=1.25in]{geometry}
+
+
+% Used to create custom column types for specifying widths
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage[utf8]{inputenc}
+
+% Used when creating a math document
+% * amsmath - contains logic for type setting math
+% * amssymb - contains different math symbols
+\usepackage{amsmath, amssymb}
+
+% For underlining long text
+\usepackage{ulem}
+
+\usepackage[english]{babel}
+% Use to generate random texts
+\usepackage{blindtext}
+\usepackage{microtype}
+
+% use for embedding images
+\usepackage{graphicx}
+
+
+\begin{document}
+\title{\LARGE{\textbf{LeiTex Tutorial}}}
+\author{By Lomi}
+\date{September 12, 2020}
+
+
+\maketitle
+
+
+\Large{\textbf{Different font styles}}
+
+\normalsize
+Normal text = Normal Text
+
+\textbackslash textbf\{Bold Text\} = \textbf{Bold Text}
+
+\textbackslash textit\{Italic text\} = \textit{Italic text}
+
+\textbackslash underline\{Underlined Text\} = \underline{Underlined Text}
+% when underlining a long text use the \usepackage{ulem}
+
+% \uline - single underline
+% \uuline - double underline
+% \uwave - wavy underline
+
+\uuline{this is a waved underleine}
+
+
+% Text sizes
+\hfill \break
+
+
+This is a normal sized text.
+
+% Font sizes can be pt, px, cm, mm, em, ex
+Normal size text \textbackslash Large Large text = Normal size text {\LARGE Large ljasdlja} text
+% Normal size text \textbackslash Large Large text Normal size text \LARGE Large text and everything goes after
+
+Normal size text \textbackslash tiny tiny text = Normal size text {\tiny tiny} text
+
+\textbackslash
+% Font Families
+\hfill
+\break
+
+\textbackslash textrm\{Default (Roman) text\} = \textrm{Default (Roman) text}
+
+\textbackslash textsf\{Sans serif text\} = \textsf{Sans serif text}
+
+\textbackslash texttt\{Typewriter text\} = \texttt{Typewriter text}
+\\[\baselineskip]
+
+
+% Text Justification and alignment
+
+\begin{center}
+  \Large{\textbf{Text Justification and Alignment}}
+\end{center}
+
+This is a fully justified text and spread out so that it stretches to fill the entire width of the page. notice that left and right margins are perfectly straight.
+This is a fully justified text and spread out so that it stretches to fill the entire width of the page. notice that left and right margins are perfectly straight.
+
+
+
+\begin{center}
+Center justified text is aligned down the center of the page. The spacing between the words is not strached out, which leads to ragged margins on the left and right. Center justified text is aligned down the center of the page. The spacing between the words is not strached out, which leads to ragged margins on the left and right
+\end{center}
+
+\begin{flushleft}
+  Left justified text is aligned with the left margin. The spacing between the words is not strecthed out, which leads to a ragged margin on the right.  Left justified text is aligned with the left margin. The spacing between the words is not strecthed out, which leads to a ragged margin on the right.
+\end{flushleft}
+
+\begin{flushright}
+  Right justified text is aligned with the right margin. The spacing between the words is not strecthed out, which leads to a ragged margin on the left.  Right justified text is aligned with the right margin. The spacing between the words is not strecthed out, which leads to a ragged margin on the left.
+\end{flushright}
+
+% use \setlength{\parindent}{1cm} - to change default paragraph indentation
+
+\setlength{\parindent}{1cm}
+
+
+% Math modes
+% Display style math mode - puts math on display
+% Inline or Text Style math mode - math stays in paragraph
+\break
+\begin{center}
+  \Large{\textbf{Display Math Mode}} \\
+  \normalsize When math equations creates a separate section on the paragraph usually centered
+\end{center}
+\textbackslash begin\{align\}
+
+\noindent  2x + 1 \& = 9  \& 3y - 2 \& = -5  \&  -5z + 8 \& = 3 \\
+\-\hspace{0.7cm} 2x \& = 8  \&     3y \& = -3  \&     -5z \& = -5 \\
+\-\hspace{1cm} x \& = 8  \&      y \& = -1  \&       z \& = -1
+      
+\noindent\textbackslash end\{align\}
+
+\begin{align}
+  2x + 1 & = 9  & 3y - 2 & = -5  &  -5z + 8 & = 3 \\
+      2x & = 8  &     3y & = -3  &     -5z & = -5 \\
+       x & = 8  &      y & = -1  &       z & = -1
+\end{align}
+
+using align* removes the line numbering from the equation
+\begin{align*}
+  2x + 1 & = 9  & 3y - 2 & = -5  &  -5z + 8 & = 3 \\
+      2x & = 8  &     3y & = -3  &     -5z & = -5 \\
+       x & = 8  &      y & = -1  &       z & = -1
+\end{align*}
+\begin{align*}
+  \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}
+\end{align*}
+\\
+\begin{center}
+  \Large{\textbf{Inline or Text Style Math Mode}} \\
+  \normalsize When math equations are in line with the paragraph
+\end{center}
+
+Notice that by substitution we get the equation \(f(x) = x^2 + 4x + 5\) This is a quadratic function \( x \), and we can identify the vertex by completing the square...
+\\
+\( \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6} \)
+\\
+
+The variable \textbackslash( x \textbackslash ) = The variable \( x \)
+
+The letter x = The letter x
+
+\break
+
+\begin{center}
+  \Large{\textbf{Basic Notation}}
+\end{center}
+
+\underline{Arithmetic}
+
+1 + 1 \-\hspace{0.8cm}=\-\hspace{0.7cm} \( 1 + 1 \)
+
+5 - 3 \-\hspace{1cm}=\-\hspace{0.7cm} \( 5 - 3 \)
+
+6 \textbackslash cdot 4 \-\hspace{0.15cm}=\-\hspace{0.65cm} \( 6 \cdot 4 \)
+
+6 \textbackslash times 4 =\-\hspace{0.65cm} \( 6 \times 4 \)
+
+27 \textbackslash div 9 \-\hspace{0.15cm}=\-\hspace{0.65cm} \( 27 \div 9 \)
+\\
+
+\underline{Fractions}
+
+\textbackslash frac\{numerator\}\{denominator\}
+\\
+
+\( \frac{numerator}{denominator} \)
+\\
+
+\( \dfrac{numerator}{denominator} \)
+\\
+
+\( \tfrac{numerator}{denominator} \)
+\\
+
+\underline{Superscript and Subscript}
+\\
+
+Superscript \textasciicircum Caret x\textasciicircum2  = \( x^2 \)
+\\
+
+Subscript \_ Underscore a\_1 = \( a_1 \)
+\\
+
+Example Code: a\_1\textasciicircum2 = a sub 1 squared = \( a_1^2 \)
+
+Example Code: a\_2\textasciicircum1 = a squared sub 1 = \( a^2_1 \)
+\\
+
+Multiple superscripts should be grouped by brackets
+
+With brackets: e\textasciicircum\{kx\} = \( e^{kx} \)
+
+Without brackets: e\textasciicircum kx = \( e^kx \)
+\\
+
+\underline{Parentheses}
+\\
+
+( \textbackslash sum\_\{n=0\}\textasciicircum N ( \textbackslash frac\{1\}\{a+b\}\textasciicircum 2 ) \textasciicircum 2 ) =
+\( (\sum_{n=0}^N ( \frac{1}{a+b})^2 )^2 \)
+\\
+
+\textbackslash left( \textbackslash sum\_\{n=0\}\textasciicircum N \textbackslash left( \textbackslash frac\{1\}\{a+b\}\textasciicircum 2 \textbackslash right) \textasciicircum 2 \textbackslash right)
+\( \left(\sum_{n=0}^N \left( \frac{1}{a+b}\right)^2 \right)^2 \)
+\\
+
+
+\begin{tabular}{cccc}
+  (a) & \textbackslash big(a \textbackslash big) & \textbackslash bigg(a \textbackslash bigg) & \textbackslash Bigg(a \textbackslash Bigg) \\
+  \( (a) \) & \( \big( a \big) \) & \( \bigg( a \bigg) \) & \( \Bigg( a \Bigg) \)
+\end{tabular}
+
+
+\break
+
+\begin{center}
+  \Large\textbf{Tables and Arrays}
+\end{center}
+
+% \begin{tabular}{lcr} second args 
+% contains number of cols and their alignments
+% l = left, c = center, r = right
+
+\begin{tabular}{lcr}
+left & center & right \\
+l & c & r
+\end{tabular}
+\\[\baselineskip]
+
+% To create line in between columns add | per cols
+% use array package to get new column types to set custom width
+\begin{tabular}{|l|c|r|}
+  left & center & right \\
+  l & this is a very very long text that cannot fit just 4 centimeters of width & r
+\end{tabular}
+\\[\baselineskip]
+
+
+% To create line in between columns add | per cols
+% use array package to get new column types to set custom width
+\begin{tabular}{|l|C{4cm}|r|}
+  left & center & right \\
+  l & this is a very very long text that cannot fit just 4 centimeters of width & r
+\end{tabular}
+\\[\baselineskip]
+
+% To create line in between columns add | per cols
+\begin{tabular}{|lc|r|}
+  left & center & right \\
+  l & c & r
+\end{tabular}
+\\[\baselineskip]
+
+% To use a fancier horizontal lines use
+% \usepackage{hhline}
+
+% other Table packages
+% \usepackage{booktabs}
+% \usepackage{tabularx}
+% \usepackage{colortbl}
+% \usepackage{longtable}
+
+% To create horizontal lines add \hline
+\begin{tabular}{|lc||r|}
+  \hline
+  left & center & right \\
+  \hline
+  l & c & r \\
+  \hline
+\end{tabular}
+\\[\baselineskip]
+
+
+% Arrays
+\(
+\begin{array}{ccc}
+  a_11 & a_12 & a_13 \\
+  a_21 & a_22 & a_23
+\end{array}
+\)
+\\[\baselineskip]
+
+\(
+  \left(
+    \begin{array}{ccc}
+      a_11 & a_12 & a_13 \\
+      a_21 & a_22 & a_23 \\
+      a_21 & a_22 & a_23 \\
+      a_21 & a_22 & a_23 \\
+      a_21 & a_22 & a_23 \\
+    \end{array}
+  \right)
+\)
+\\[\baselineskip]
+
+\(
+  \left[
+    \begin{array}{ccc}
+      a_11 & a_12 & \cdots \\
+      a_21 & a_22 & \cdots \\
+      \vdots & \cdots & \ddots
+    \end{array}
+  \right]
+\)
+\\[\baselineskip]
+
+\end{document}
